@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/otai-logo.png";
+import muka from "@/assets/muka.png";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Facebook, Users, HeartHandshake, Shield, Award, ArrowRight, Star } from "lucide-react";
@@ -72,10 +73,27 @@ function Hero() {
             <Star className="w-3.5 h-3.5 text-gold" />
             <span className="text-xs font-medium tracking-wider uppercase">Bersatu • Berbakti • Berjasa</span>
           </div>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6">
-            OTAI Maidani<br />
-            <span className="bg-gradient-to-r from-gold to-amber-200 bg-clip-text text-transparent">Penang</span>
-          </h1>
+          <div className="flex items-end gap-6 mb-6">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05]">
+              OTAI Maidani<br />
+              <span className="bg-gradient-to-r from-gold to-amber-200 bg-clip-text text-transparent">Penang</span>
+            </h1>
+            <div className="relative group shrink-0 hidden sm:block">
+              <img
+                src={muka}
+                alt="Idress Bin Hassan"
+                className="h-36 md:h-44 lg:h-52 object-contain object-bottom drop-shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.35))" }}
+              />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-10">
+                <div className="glass-dark rounded-xl px-4 py-2.5 text-center whitespace-nowrap border border-white/20">
+                  <div className="font-display font-bold text-sm text-gold">Idress Bin Hassan</div>
+                  <div className="text-[10px] tracking-[0.2em] uppercase text-white/70 mt-0.5">Penerusi</div>
+                </div>
+                <div className="w-2.5 h-2.5 glass-dark border-b border-r border-white/20 rotate-45 mx-auto -mt-1.5" />
+              </div>
+            </div>
+          </div>
           <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed mb-10">
             Sebuah persatuan warga veteran dan alumni di Pulau Pinang yang memupuk semangat kekitaan,
             perpaduan dan khidmat bakti kepada masyarakat dan negara.
