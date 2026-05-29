@@ -24,6 +24,16 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+/* ───────── floating orbs for glass hero depth ───────── */
+function FloatingOrbs() {
+  return (
+    <>
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
+      <div className="absolute top-1/2 -left-20 w-[300px] h-[300px] rounded-full blur-3xl opacity-10" style={{ background: "var(--gradient-gold)" }} />
+    </>
+  );
+}
+
 function Nav() {
   const links = [
     { href: "#tentang", label: "Tentang" },
@@ -32,7 +42,7 @@ function Nav() {
     { href: "#hubungi", label: "Hubungi" },
   ];
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
+    <header className="fixed top-0 inset-x-0 z-50 glass-strong border-b border-white/40">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
           <img src={logo} alt="OTAI Maidani Penang" className="h-10 w-10 object-contain" />
@@ -63,11 +73,11 @@ function Hero() {
         backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
         backgroundSize: "32px 32px",
       }} />
-      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
+      <FloatingOrbs />
 
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div className="text-primary-foreground">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold mb-6">
             <Star className="w-3.5 h-3.5 text-gold" />
             <span className="text-xs font-medium tracking-wider uppercase">Bersatu • Berbakti • Berjasa</span>
           </div>
@@ -83,19 +93,19 @@ function Hero() {
             <Button asChild size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 shadow-[var(--shadow-gold)]">
               <a href="#tentang">Kenali Kami <ArrowRight className="ml-2 w-4 h-4" /></a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-white hover:bg-white/10 hover:text-white">
+            <Button asChild size="lg" variant="outline" className="glass-dark text-white hover:bg-white/10 hover:text-white border-white/20">
               <a href="#hubungi">Hubungi Kami</a>
             </Button>
           </div>
-          <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
+          <div className="mt-12 grid grid-cols-3 gap-4 max-w-md">
             {[
               { v: "500+", l: "Ahli Aktif" },
               { v: "20+", l: "Tahun Khidmat" },
               { v: "50+", l: "Program" },
             ].map((s) => (
-              <div key={s.l}>
-                <div className="font-display text-3xl font-bold text-gold">{s.v}</div>
-                <div className="text-xs text-white/60 uppercase tracking-wider mt-1">{s.l}</div>
+              <div key={s.l} className="glass-dark rounded-xl p-4 text-center">
+                <div className="font-display text-2xl md:text-3xl font-bold text-gold">{s.v}</div>
+                <div className="text-[10px] text-white/60 uppercase tracking-wider mt-1">{s.l}</div>
               </div>
             ))}
           </div>
@@ -103,7 +113,9 @@ function Hero() {
 
         <div className="relative flex items-center justify-center">
           <div className="absolute inset-0 rounded-full blur-3xl opacity-40" style={{ background: "var(--gradient-gold)" }} />
-          <img src={logo} alt="Logo rasmi OTAI Maidani Penang" className="relative w-full max-w-md drop-shadow-2xl" />
+          <div className="glass-dark rounded-3xl p-8">
+            <img src={logo} alt="Logo rasmi OTAI Maidani Penang" className="relative w-full max-w-md drop-shadow-2xl" />
+          </div>
         </div>
       </div>
     </section>
@@ -112,8 +124,12 @@ function Hero() {
 
 function About() {
   return (
-    <section id="tentang" className="py-24" style={{ background: "var(--gradient-section)" }}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="tentang" className="py-24 relative overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+      {/* soft orbs behind */}
+      <div className="absolute top-20 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-30" style={{ background: "var(--gradient-gold)" }} />
+      <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-hero)" }} />
+
+      <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-xs font-semibold tracking-[0.3em] text-accent uppercase mb-3">Tentang Persatuan</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Warisan Kekitaan & Khidmat</h2>
@@ -132,7 +148,7 @@ function About() {
             { icon: Shield, title: "Misi", text: "Memupuk perpaduan, kebajikan dan kesejahteraan ahli serta menyumbang khidmat bakti kepada komuniti." },
             { icon: Users, title: "Objektif", text: "Mengeratkan silaturahim, melestarikan nilai murni dan menggerakkan inisiatif kemasyarakatan." },
           ].map((c) => (
-            <Card key={c.title} className="p-8 border-border/60 bg-card hover:shadow-[var(--shadow-elegant)] transition-shadow">
+            <Card key={c.title} className="glass p-8 hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: "var(--gradient-hero)" }}>
                 <c.icon className="w-6 h-6 text-gold" />
               </div>
@@ -159,19 +175,22 @@ function Values() {
         backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
         backgroundSize: "24px 24px",
       }} />
+      <FloatingOrbs />
       <div className="relative max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div className="flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 rounded-full blur-3xl opacity-30" style={{ background: "var(--gradient-gold)" }} />
-            <img src={logo} alt="Maksud lambang logo" className="relative w-full max-w-sm" />
+            <div className="glass-dark rounded-3xl p-8">
+              <img src={logo} alt="Maksud lambang logo" className="relative w-full max-w-sm" />
+            </div>
           </div>
         </div>
         <div>
           <div className="text-xs font-semibold tracking-[0.3em] text-gold uppercase mb-3">Maksud Lambang</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-8">Setiap Warna<br />Membawa Erti</h2>
-          <div className="space-y-5">
+          <div className="space-y-4">
             {items.map((i) => (
-              <div key={i.color} className="flex gap-4 pb-5 border-b border-white/10 last:border-0">
+              <div key={i.color} className="glass-dark rounded-xl p-4 flex gap-4">
                 <div className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "var(--gradient-gold)" }}>
                   <Star className="w-5 h-5 text-primary" />
                 </div>
@@ -196,8 +215,9 @@ function Programs() {
     { icon: Award, title: "Pembangunan Insan", desc: "Bengkel kepimpinan, motivasi dan latihan kemahiran untuk generasi muda." },
   ];
   return (
-    <section id="program" className="py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="program" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
+      <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="text-xs font-semibold tracking-[0.3em] text-accent uppercase mb-3">Program & Aktiviti</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Berbakti Tanpa Henti</h2>
@@ -205,7 +225,7 @@ function Programs() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {programs.map((p) => (
-            <Card key={p.title} className="group p-7 border-border/60 hover:border-gold/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-[var(--shadow-elegant)]">
+            <Card key={p.title} className="glass p-7 hover:-translate-y-1 transition-all duration-300 group">
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style={{ background: "var(--gradient-gold)" }}>
                 <p.icon className="w-7 h-7 text-primary" />
               </div>
@@ -227,8 +247,9 @@ function Contact() {
     { icon: Facebook, label: "Facebook", value: "facebook.com/otaimaidanipenang" },
   ];
   return (
-    <section id="hubungi" className="py-24" style={{ background: "var(--gradient-section)" }}>
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="hubungi" className="py-24 relative overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+      <div className="absolute -bottom-20 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-25" style={{ background: "var(--gradient-gold)" }} />
+      <div className="relative max-w-5xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="text-xs font-semibold tracking-[0.3em] text-accent uppercase mb-3">Hubungi Kami</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Mari Bersama Kami</h2>
@@ -237,25 +258,28 @@ function Contact() {
           </p>
         </div>
 
-        <Card className="overflow-hidden border-border/60 shadow-[var(--shadow-elegant)]">
+        <Card className="overflow-hidden glass-strong border-white/40 shadow-[var(--shadow-elegant)]">
           <div className="grid md:grid-cols-2">
-            <div className="p-10 text-primary-foreground relative" style={{ background: "var(--gradient-hero)" }}>
-              <h3 className="font-display text-2xl font-bold mb-8">Maklumat Perhubungan</h3>
-              <div className="space-y-6">
-                {items.map((i) => (
-                  <div key={i.label} className="flex gap-4">
-                    <div className="shrink-0 w-11 h-11 rounded-lg flex items-center justify-center" style={{ background: "var(--gradient-gold)" }}>
-                      <i.icon className="w-5 h-5 text-primary" />
+            <div className="p-10 text-primary-foreground relative">
+              <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+              <div className="relative">
+                <h3 className="font-display text-2xl font-bold mb-8">Maklumat Perhubungan</h3>
+                <div className="space-y-6">
+                  {items.map((i) => (
+                    <div key={i.label} className="flex gap-4">
+                      <div className="shrink-0 w-11 h-11 rounded-lg flex items-center justify-center glass-dark" style={{ background: "var(--gradient-gold)" }}>
+                        <i.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <div className="text-xs uppercase tracking-wider text-gold mb-1">{i.label}</div>
+                        <div className="text-white/90">{i.value}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-gold mb-1">{i.label}</div>
-                      <div className="text-white/90">{i.value}</div>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="p-10 bg-card flex flex-col justify-center">
+            <div className="p-10 flex flex-col justify-center">
               <h3 className="font-display text-2xl font-bold text-primary mb-3">Sertai Pertubuhan</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Daftar sebagai ahli untuk menyertai aktiviti, program kebajikan dan jaringan veteran kami.
@@ -276,12 +300,16 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="py-12 border-t border-white/10 relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+        backgroundSize: "24px 24px",
+      }} />
+      <div className="relative max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
           <img src={logo} alt="" className="h-12 w-12 object-contain" />
           <div>
-            <div className="font-display font-bold">OTAI MAIDANI PENANG</div>
+            <div className="font-display font-bold text-primary-foreground">OTAI MAIDANI PENANG</div>
             <div className="text-xs text-white/60 tracking-wider">Bersatu • Berbakti • Berjasa</div>
           </div>
         </div>
