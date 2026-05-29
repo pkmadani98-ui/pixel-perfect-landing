@@ -51,20 +51,27 @@
   --input: oklch(0.92 0.015 250);
   --ring: oklch(0.55 0.12 240);
 
-  /* Glassmorphism tokens */
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.35);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
-  --glass-dark-bg: rgba(255, 255, 255, 0.06);
-  --glass-dark-border: rgba(255, 255, 255, 0.12);
-  --glass-dark-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-  --glass-gold-bg: rgba(201, 168, 76, 0.08);
-  --glass-gold-border: rgba(201, 168, 76, 0.25);
+  /* Liquid Glass tokens */
+  --glass-bg: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --glass-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.18),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.18);
+  --glass-dark-bg: rgba(255, 255, 255, 0.05);
+  --glass-dark-border: rgba(255, 255, 255, 0.18);
+  --glass-dark-shadow:
+    0 10px 40px 0 rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+  --glass-gold-bg: rgba(201, 168, 76, 0.10);
+  --glass-gold-border: rgba(201, 168, 76, 0.35);
 
   --gradient-hero: linear-gradient(135deg, oklch(0.22 0.08 265) 0%, oklch(0.32 0.1 260) 50%, oklch(0.28 0.09 265) 100%);
   --gradient-gold: linear-gradient(135deg, oklch(0.82 0.13 88), oklch(0.7 0.15 75));
   --gradient-section: linear-gradient(180deg, oklch(0.99 0.005 250), oklch(0.96 0.015 250));
   --gradient-light: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #f0f4f8 100%);
+  --gradient-liquid: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0.35) 100%);
   --shadow-elegant: 0 20px 60px -20px oklch(0.28 0.09 265 / 0.35);
   --shadow-gold: 0 10px 40px -10px oklch(0.78 0.14 85 / 0.45);
 }
@@ -81,32 +88,67 @@
 }
 
 @layer utilities {
+  .glass,
+  .glass-dark,
+  .glass-gold,
+  .glass-strong {
+    position: relative;
+    isolation: isolate;
+  }
   .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px) saturate(1.4);
-    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    background-color: var(--glass-bg);
+    background-image: var(--gradient-liquid);
+    backdrop-filter: blur(28px) saturate(1.8);
+    -webkit-backdrop-filter: blur(28px) saturate(1.8);
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
   }
   .glass-dark {
-    background: var(--glass-dark-bg);
-    backdrop-filter: blur(16px) saturate(1.4);
-    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    background-color: var(--glass-dark-bg);
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
     border: 1px solid var(--glass-dark-border);
     box-shadow: var(--glass-dark-shadow);
   }
   .glass-gold {
-    background: var(--glass-gold-bg);
-    backdrop-filter: blur(12px) saturate(1.3);
-    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    background-color: var(--glass-gold-bg);
+    backdrop-filter: blur(22px) saturate(1.6);
+    -webkit-backdrop-filter: blur(22px) saturate(1.6);
     border: 1px solid var(--glass-gold-border);
-    box-shadow: var(--glass-shadow);
+    box-shadow:
+      0 8px 32px 0 rgba(201, 168, 76, 0.18),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
   }
   .glass-strong {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(24px) saturate(1.6);
-    -webkit-backdrop-filter: blur(24px) saturate(1.6);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    background-color: rgba(255, 255, 255, 0.28);
+    background-image: var(--gradient-liquid);
+    backdrop-filter: blur(36px) saturate(2);
+    -webkit-backdrop-filter: blur(36px) saturate(2);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
+      0 12px 40px 0 rgba(31, 38, 135, 0.22),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.18);
+  }
+
+  /* Specular highlight ring for liquid glass feel */
+  .glass::before,
+  .glass-dark::before,
+  .glass-gold::before,
+  .glass-strong::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.4));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .glass-dark::before {
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.12));
   }
 }
