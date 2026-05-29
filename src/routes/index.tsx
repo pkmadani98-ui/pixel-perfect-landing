@@ -67,21 +67,21 @@ function Hero() {
       <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
       <div className="absolute top-1/2 -left-20 w-[300px] h-[300px] rounded-full blur-3xl opacity-10" style={{ background: "var(--gradient-gold)" }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-[280px_1fr_320px] gap-8 items-end">
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-[300px_1fr_300px] gap-12 items-end">
 
         {/* Left — pengerusi photo */}
-        <div className="hidden lg:flex flex-col items-center justify-end self-end">
-          <div className="relative">
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-16 rounded-full blur-2xl opacity-40" style={{ background: "var(--gradient-gold)" }} />
+        <div className="hidden lg:flex flex-col items-center justify-end self-end pb-8">
+          <div className="relative w-full">
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-56 h-20 rounded-full blur-2xl opacity-40" style={{ background: "var(--gradient-gold)" }} />
             <img
               src={muka}
               alt="Idress Bin Hassan — Pengerusi OTAI Maidani Penang"
-              className="relative w-64 object-contain drop-shadow-2xl"
+              className="relative w-full max-w-xs mx-auto object-contain drop-shadow-2xl"
               style={{ filter: "drop-shadow(0 0 24px rgba(201,168,76,0.35))" }}
             />
           </div>
-          <div className="glass-gold rounded-2xl px-6 py-4 text-center mt-3 mb-1">
-            <div className="font-display font-bold text-lg text-white leading-tight">Idress Bin Hassan</div>
+          <div className="glass-gold rounded-2xl px-4 py-3 text-center mt-4">
+            <div className="font-display font-bold text-base text-white leading-tight">Idress Bin Hassan</div>
             <div className="text-xs font-semibold tracking-[0.2em] text-gold uppercase mt-1">Pengerusi</div>
           </div>
         </div>
