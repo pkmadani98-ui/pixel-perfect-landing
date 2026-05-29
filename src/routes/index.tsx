@@ -33,8 +33,8 @@ function Nav() {
     { href: "#hubungi", label: "Hubungi" },
   ];
   return (
-    <header className="fixed top-4 left-4 right-4 z-50 rounded-2xl max-w-7xl mx-auto">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between bg-transparent">
+    <header className="fixed top-4 left-4 right-4 z-50 glass rounded-2xl border border-white/40 shadow-lg max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
           <img src={logo} alt="OTAI Maidani Penang" className="h-10 w-10 object-contain" />
           <div className="leading-tight">
