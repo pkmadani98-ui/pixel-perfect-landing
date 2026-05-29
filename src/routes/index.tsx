@@ -24,16 +24,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-/* ───────── floating orbs for glass hero depth ───────── */
-function FloatingOrbs() {
-  return (
-    <>
-      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
-      <div className="absolute top-1/2 -left-20 w-[300px] h-[300px] rounded-full blur-3xl opacity-10" style={{ background: "var(--gradient-gold)" }} />
-    </>
-  );
-}
-
 function Nav() {
   const links = [
     { href: "#tentang", label: "Tentang" },
@@ -73,7 +63,8 @@ function Hero() {
         backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
         backgroundSize: "32px 32px",
       }} />
-      <FloatingOrbs />
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
+      <div className="absolute top-1/2 -left-20 w-[300px] h-[300px] rounded-full blur-3xl opacity-10" style={{ background: "var(--gradient-gold)" }} />
 
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div className="text-primary-foreground">
@@ -112,10 +103,8 @@ function Hero() {
         </div>
 
         <div className="relative flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full blur-3xl opacity-40" style={{ background: "var(--gradient-gold)" }} />
-          <div className="glass-dark rounded-3xl p-8">
-            <img src={logo} alt="Logo rasmi OTAI Maidani Penang" className="relative w-full max-w-md drop-shadow-2xl" />
-          </div>
+          <div className="absolute inset-0 rounded-full blur-3xl opacity-50" style={{ background: "var(--gradient-gold)" }} />
+          <img src={logo} alt="Logo rasmi OTAI Maidani Penang" className="relative w-full max-w-md drop-shadow-2xl" style={{ filter: "drop-shadow(0 0 40px rgba(201,168,76,0.45)) drop-shadow(0 0 80px rgba(201,168,76,0.25))" }} />
         </div>
       </div>
     </section>
@@ -175,14 +164,13 @@ function Values() {
         backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
         backgroundSize: "24px 24px",
       }} />
-      <FloatingOrbs />
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
+      <div className="absolute top-1/2 -left-20 w-[300px] h-[300px] rounded-full blur-3xl opacity-10" style={{ background: "var(--gradient-gold)" }} />
       <div className="relative max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div className="flex justify-center">
           <div className="relative">
-            <div className="absolute inset-0 rounded-full blur-3xl opacity-30" style={{ background: "var(--gradient-gold)" }} />
-            <div className="glass-dark rounded-3xl p-8">
-              <img src={logo} alt="Maksud lambang logo" className="relative w-full max-w-sm" />
-            </div>
+            <div className="absolute inset-0 rounded-full blur-3xl opacity-40" style={{ background: "var(--gradient-gold)" }} />
+            <img src={logo} alt="Maksud lambang logo" className="relative w-full max-w-sm" style={{ filter: "drop-shadow(0 0 40px rgba(201,168,76,0.45)) drop-shadow(0 0 80px rgba(201,168,76,0.25))" }} />
           </div>
         </div>
         <div>
