@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/otai-logo.png";
-import muka from "@/assets/muka.png";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Facebook, Users, HeartHandshake, Shield, Award, ArrowRight, Star } from "lucide-react";
@@ -67,27 +66,8 @@ function Hero() {
       <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "var(--gradient-gold)" }} />
       <div className="absolute top-1/2 -left-20 w-[300px] h-[300px] rounded-full blur-3xl opacity-10" style={{ background: "var(--gradient-gold)" }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-[300px_1fr_300px] gap-12 items-end">
-
-        {/* Left — pengerusi photo */}
-        <div className="hidden lg:flex flex-col items-center justify-end self-end pb-8">
-          <div className="relative w-full">
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-56 h-20 rounded-full blur-2xl opacity-40" style={{ background: "var(--gradient-gold)" }} />
-            <img
-              src={muka}
-              alt="Idress Bin Hassan — Pengerusi OTAI Maidani Penang"
-              className="relative w-full max-w-xs mx-auto object-contain drop-shadow-2xl"
-              style={{ filter: "drop-shadow(0 0 24px rgba(201,168,76,0.35))" }}
-            />
-          </div>
-          <div className="glass-gold rounded-2xl px-4 py-3 text-center mt-4">
-            <div className="font-display font-bold text-base text-white leading-tight">Idress Bin Hassan</div>
-            <div className="text-xs font-semibold tracking-[0.2em] text-gold uppercase mt-1">Pengerusi</div>
-          </div>
-        </div>
-
-        {/* Centre — text content */}
-        <div className="text-primary-foreground py-4">
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="text-primary-foreground">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold mb-6">
             <Star className="w-3.5 h-3.5 text-gold" />
             <span className="text-xs font-medium tracking-wider uppercase">Bersatu • Berbakti • Berjasa</span>
@@ -122,10 +102,9 @@ function Hero() {
           </div>
         </div>
 
-        {/* Right — logo */}
         <div className="relative flex items-center justify-center">
           <div className="absolute inset-0 rounded-full blur-3xl opacity-50" style={{ background: "var(--gradient-gold)" }} />
-          <img src={logo} alt="Logo rasmi OTAI Maidani Penang" className="relative w-full max-w-xs drop-shadow-2xl" style={{ filter: "drop-shadow(0 0 40px rgba(201,168,76,0.45)) drop-shadow(0 0 80px rgba(201,168,76,0.25))" }} />
+          <img src={logo} alt="Logo rasmi OTAI Maidani Penang" className="relative w-full max-w-md drop-shadow-2xl" style={{ filter: "drop-shadow(0 0 40px rgba(201,168,76,0.45)) drop-shadow(0 0 80px rgba(201,168,76,0.25))" }} />
         </div>
       </div>
     </section>
