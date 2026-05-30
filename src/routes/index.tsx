@@ -82,13 +82,13 @@ function Hero() {
               <img
                 src={muka}
                 alt="Idress Bin Hassan"
-                className="h-36 md:h-44 lg:h-52 object-contain object-bottom drop-shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                className="h-44 md:h-56 lg:h-72 object-contain object-bottom drop-shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.35))" }}
               />
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-10">
                 <div className="glass-dark rounded-xl px-4 py-2.5 text-center whitespace-nowrap border border-white/20">
                   <div className="font-display font-bold text-sm text-gold">Idress Bin Hassan</div>
-                  <div className="text-[10px] tracking-[0.2em] uppercase text-white/70 mt-0.5">Penerusi</div>
+                  <div className="text-[10px] tracking-[0.2em] uppercase text-white/70 mt-0.5">Pengerusi</div>
                 </div>
                 <div className="w-2.5 h-2.5 glass-dark border-b border-r border-white/20 rotate-45 mx-auto -mt-1.5" />
               </div>
