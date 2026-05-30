@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/otai-logo.png";
 import muka from "@/assets/muka.png";
+import sertaiBanner from "@/assets/sertai-banner.png";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Facebook, Users, HeartHandshake, Shield, Award, ArrowRight, Star } from "lucide-react";
@@ -38,18 +39,18 @@ function Nav() {
         <a href="#" className="flex items-center gap-3">
           <img src={logo} alt="OTAI Maidani Penang" className="h-10 w-10 object-contain" />
           <div className="leading-tight">
-            <div className="font-display font-bold text-sm text-primary">OTAI MAIDANI</div>
-            <div className="text-[10px] tracking-[0.2em] text-muted-foreground">PENANG</div>
+            <div className="font-display font-bold text-sm text-white drop-shadow">OTAI MAIDANI</div>
+            <div className="text-[10px] tracking-[0.2em] text-white/80">PENANG</div>
           </div>
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <a key={l.href} href={l.href} className="text-sm font-medium text-white/90 hover:text-gold transition-colors drop-shadow">
               {l.label}
             </a>
           ))}
         </nav>
-        <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
+        <Button asChild size="sm" className="bg-gold text-gold-foreground hover:bg-gold/90">
           <a href="#hubungi">Sertai Kami</a>
         </Button>
       </div>
@@ -286,6 +287,7 @@ function Contact() {
               </div>
             </div>
             <div className="p-10 flex flex-col justify-center">
+              <img src={sertaiBanner} alt="Pertubuhan Kebajikan 1998 Madani Pulau Pinang" className="w-full rounded-xl shadow-lg mb-6" />
               <h3 className="font-display text-2xl font-bold text-primary mb-3">Sertai Pertubuhan</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Daftar sebagai ahli untuk menyertai aktiviti, program kebajikan dan jaringan veteran kami.
