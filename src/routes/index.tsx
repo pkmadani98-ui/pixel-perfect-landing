@@ -82,7 +82,7 @@ function Hero() {
               <img
                 src={muka}
                 alt="Idress Bin Hassan"
-                className="h-36 md:h-44 lg:h-52 object-contain object-bottom drop-shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                className="h-44 md:h-56 lg:h-72 object-contain object-bottom drop-shadow-2xl transition-transform duration-300 group-hover:scale-105"
                 style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.35))" }}
               />
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-10">
