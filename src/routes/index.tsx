@@ -248,7 +248,7 @@ function Programs() {
 function Contact() {
   const items = [
     { icon: MapPin, label: "Alamat", value: "Pulau Pinang, Malaysia" },
-    { icon: Mail, label: "Emel", value: "otaimaidanipenang@gmail.com" },
+    { icon: Mail, label: "Emel", value: "pkmadani98@gmail.com" },
     { icon: Phone, label: "Telefon", value: "+60 12-345 6789" },
     { icon: Facebook, label: "Facebook", value: "facebook.com/otaimaidanipenang" },
   ];
@@ -294,7 +294,7 @@ function Contact() {
                 <a href="https://forms.gle/9wSbf1jiupERZjFVA" target="_blank" rel="noopener noreferrer">Daftar Menjadi Ahli <ArrowRight className="ml-2 w-4 h-4" /></a>
               </Button>
               <Button asChild size="lg" variant="outline" className="mt-3 w-full border-primary/20 text-primary hover:bg-primary/5">
-                <a href="mailto:otaimaidanipenang@gmail.com">Hantar Mesej</a>
+                <a href="mailto:pkmadani98@gmail.com">Hantar Mesej</a>
               </Button>
             </div>
           </div>
