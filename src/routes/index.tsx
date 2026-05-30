@@ -291,7 +291,7 @@ function Contact() {
                 Daftar sebagai ahli untuk menyertai aktiviti, program kebajikan dan jaringan veteran kami.
               </p>
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 w-full">
-                <a href="#">Daftar Menjadi Ahli <ArrowRight className="ml-2 w-4 h-4" /></a>
+                <a href="https://forms.gle/9wSbf1jiupERZjFVA" target="_blank" rel="noopener noreferrer">Daftar Menjadi Ahli <ArrowRight className="ml-2 w-4 h-4" /></a>
               </Button>
               <Button asChild size="lg" variant="outline" className="mt-3 w-full border-primary/20 text-primary hover:bg-primary/5">
                 <a href="mailto:otaimaidanipenang@gmail.com">Hantar Mesej</a>
